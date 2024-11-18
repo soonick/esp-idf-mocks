@@ -13,4 +13,4 @@ typedef int esp_err_t;
     throw 1;               \
   }
 
-const char *esp_err_to_name(esp_err_t code);
+const char* esp_err_to_name(esp_err_t code);

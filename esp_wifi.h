@@ -52,7 +52,7 @@ typedef union {
   wifi_sta_config_t sta; /**< Configuration of STA */
 } wifi_config_t;
 
-esp_err_t esp_wifi_clear_default_wifi_driver_and_handlers(void *esp_netif);
+esp_err_t esp_wifi_clear_default_wifi_driver_and_handlers(void* esp_netif);
 esp_err_t esp_wifi_connect();
 esp_err_t esp_wifi_deinit();
 esp_err_t esp_wifi_init(const wifi_init_config_t* config);
@@ -62,5 +62,7 @@ esp_err_t esp_wifi_set_mode(wifi_mode_t mode);
 esp_err_t esp_wifi_start();
 esp_err_t esp_wifi_stop();
 esp_netif_t* esp_netif_create_default_wifi_ap();
-esp_netif_t* esp_netif_create_wifi(wifi_interface_t wifi_if, const esp_netif_inherent_config_t *esp_netif_config);
+esp_netif_t* esp_netif_create_wifi(
+    wifi_interface_t wifi_if,
+    const esp_netif_inherent_config_t* esp_netif_config);
 void esp_netif_destroy_default_wifi(esp_netif_t* ap_wifi);

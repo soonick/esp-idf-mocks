@@ -5,12 +5,11 @@
 #include "esp_err.h"
 #include "esp_event.h"
 
-#define ESP_NETIF_INHERENT_DEFAULT_WIFI_STA()                  \
-    {                                                \
-    }
+#define ESP_NETIF_INHERENT_DEFAULT_WIFI_STA() \
+  {}
 
 typedef enum {
-    IP_EVENT_STA_GOT_IP,
+  IP_EVENT_STA_GOT_IP,
 } ip_event_t;
 
 extern const esp_event_base_t IP_EVENT;
@@ -37,4 +36,4 @@ esp_err_t esp_netif_get_ip_info(esp_netif_t* esp_netif,
                                 esp_netif_ip_info_t* ip_info);
 esp_err_t esp_netif_init();
 esp_netif_t* esp_netif_get_handle_from_ifkey(const char* if_key);
-void esp_netif_destroy(esp_netif_t *esp_netif);
+void esp_netif_destroy(esp_netif_t* esp_netif);
