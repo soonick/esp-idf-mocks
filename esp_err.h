@@ -1,6 +1,8 @@
 #pragma once
 
 #define ESP_OK 0
+#define ESP_FAIL -1
+
 #define ESP_ERR 1
 
 typedef int esp_err_t;
@@ -10,3 +12,5 @@ typedef int esp_err_t;
   if (x != ESP_OK) {       \
     throw 1;               \
   }
+
+const char *esp_err_to_name(esp_err_t code);

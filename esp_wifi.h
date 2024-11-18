@@ -42,15 +42,25 @@ typedef struct {
   uint8_t max_connection;
 } wifi_ap_config_t;
 
+typedef struct {
+  uint8_t ssid[32];
+  uint8_t password[64];
+} wifi_sta_config_t;
+
 typedef union {
   wifi_ap_config_t ap;
+  wifi_sta_config_t sta; /**< Configuration of STA */
 } wifi_config_t;
 
-esp_netif_t* esp_netif_create_default_wifi_ap();
-void esp_netif_destroy_default_wifi(esp_netif_t* ap_wifi);
+esp_err_t esp_wifi_clear_default_wifi_driver_and_handlers(void *esp_netif);
+esp_err_t esp_wifi_connect();
+esp_err_t esp_wifi_deinit();
 esp_err_t esp_wifi_init(const wifi_init_config_t* config);
-void esp_wifi_deinit();
-esp_err_t esp_wifi_set_mode(wifi_mode_t mode);
 esp_err_t esp_wifi_set_config(wifi_interface_t interface, wifi_config_t* conf);
+esp_err_t esp_wifi_set_default_wifi_sta_handlers();
+esp_err_t esp_wifi_set_mode(wifi_mode_t mode);
 esp_err_t esp_wifi_start();
-void esp_wifi_stop();
+esp_err_t esp_wifi_stop();
+esp_netif_t* esp_netif_create_default_wifi_ap();
+esp_netif_t* esp_netif_create_wifi(wifi_interface_t wifi_if, const esp_netif_inherent_config_t *esp_netif_config);
+void esp_netif_destroy_default_wifi(esp_netif_t* ap_wifi);

@@ -1,5 +1,7 @@
 #include "esp_netif.h"
 
+const esp_event_base_t IP_EVENT = "IP_EVENT";
+
 esp_err_t esp_netif_init() {
   return ESP_OK;
 }
@@ -16,4 +18,8 @@ esp_err_t esp_netif_get_ip_info(esp_netif_t* esp_netif,
   (void)ip_info;
 
   return ESP_OK;
+}
+
+void esp_netif_destroy(esp_netif_t* esp_netif) {
+  (void)esp_netif;
 }
