@@ -10,9 +10,11 @@
 
 typedef enum {
   IP_EVENT_STA_GOT_IP,
+  WIFI_EVENT_STA_DISCONNECTED,
 } ip_event_t;
 
 extern const esp_event_base_t IP_EVENT;
+extern const esp_event_base_t WIFI_EVENT;
 
 struct esp_netif_obj {};
 

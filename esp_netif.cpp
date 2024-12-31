@@ -1,6 +1,7 @@
 #include "esp_netif.h"
 
 const esp_event_base_t IP_EVENT = "IP_EVENT";
+const esp_event_base_t WIFI_EVENT = "WIFI_EVENT";
 
 esp_err_t esp_netif_init() {
   return ESP_OK;
